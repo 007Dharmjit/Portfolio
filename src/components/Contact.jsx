@@ -10,50 +10,61 @@ const Contact = () => {
           </span>
         </h2>
         <div className="max-w-3xl mx-auto bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md">
-          <form action="#" method="POST" className="space-y-6">
-            <div>
-              <label for="name" className="block font-medium mb-2">
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                className="w-full p-3 rounded-md border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900"
-              />
-            </div>
-            <div>
-              <label for="email" className="block font-medium mb-2">
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                className="w-full p-3 rounded-md border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900"
-              />
-            </div>
-            <div>
-              <label for="message" className="block font-medium mb-2">
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows="5"
-                required
-                className="w-full p-3 rounded-md border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900"
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              className="px-6 py-3 bg-primary-light dark:bg-[#6366f1] text-white rounded-lg hover:opacity-90 transition"
-            >
-              Send Message
-            </button>
-          </form>
+         <form
+  name="contact"
+  method="POST"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  className="space-y-6"
+>
+  {/* Hidden field for Netlify bot detection */}
+  <input type="hidden" name="form-name" value="contact" />
+  <p className="hidden">
+    <label>
+      Don’t fill this out if you're human:{" "}
+      <input name="bot-field" />
+    </label>
+  </p>
+
+  {/* Your input fields */}
+  <div>
+    <label htmlFor="name" className="block font-medium mb-2">Name</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      required
+      className="w-full p-3 rounded-md border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900"
+    />
+  </div>
+  <div>
+    <label htmlFor="email" className="block font-medium mb-2">Email</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+      className="w-full p-3 rounded-md border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900"
+    />
+  </div>
+  <div>
+    <label htmlFor="message" className="block font-medium mb-2">Message</label>
+    <textarea
+      id="message"
+      name="message"
+      rows="5"
+      required
+      className="w-full p-3 rounded-md border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900"
+    ></textarea>
+  </div>
+  <button
+    type="submit"
+    className="px-6 py-3 bg-primary-light dark:bg-[#6366f1] text-white rounded-lg hover:opacity-90 transition"
+  >
+    Send Message
+  </button>
+</form>
+
         </div>
       </div>
     </section>
