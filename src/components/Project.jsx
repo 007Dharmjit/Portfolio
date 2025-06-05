@@ -27,14 +27,14 @@ const projects = [
     description:
       "My personal portfolio website showcasing my skills, projects, and contact information with a modern responsive design using React and Tailwind CSS.",
     github: "https://github.com/007Dharmjit/007Dharmjit",
-    liveDemo: "https://007dharmjit.github.io/007Dharmjit",
+    liveDemo: "https://dharmjitportfolio.netlify.app/",
   },
   {
     name: "Calculator",
     description:
       "A simple yet functional calculator app built with JavaScript supporting basic arithmetic operations and a clean user interface.",
     github: "https://github.com/007Dharmjit/calculator",
-    liveDemo: "https://007dharmjit.github.io/calculator",
+    liveDemo: "https://calculatorbydharmjit.netlify.app/",
   },
   {
     name: "MoviesBar",
