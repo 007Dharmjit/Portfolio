@@ -5,8 +5,8 @@ A personal portfolio website built using **Vite** and **React.js** to showcase p
 ## 🌐 Live Demo
 
 Check out the live site here:  
-🔗 [https://your-portfolio-live-url.com](https://your-portfolio-live-url.com)  
-*(Replace this URL with your actual live deployed site)*
+🔗 [Portfolio](https://dharmjitportfolio.netlify.app/)  
+
 
 ## 🚀 Technologies Used
 
