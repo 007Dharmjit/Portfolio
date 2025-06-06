@@ -4,12 +4,24 @@ import Homepage from "./components/Homepage";
 import Aboutpage from "./components/Aboutpage";
 import Skillpage from "./components/Skillpage";
 import Project from "./components/Project";
-import Contact from "./components/Contact"; 
-import ScrollupButton from './components/ScrollupButton'
-
+import Contact from "./components/Contact";
+import ScrollupButton from "./components/ScrollupButton";
+import { ToastContainer } from "react-toastify";
 function App() {
   return (
     <>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover={false}
+        theme="dark"
+      />
       <Header />
       <Homepage />
       <Aboutpage />

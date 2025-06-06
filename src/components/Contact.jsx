@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Contact = () => {
-  const [toast, setToast] = useState(null); // null or { type: "success" | "error", message: string }
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
-
     const formData = new FormData(form);
 
     try {
@@ -17,32 +15,18 @@ const Contact = () => {
       });
 
       if (response.ok) {
-        setToast({ type: "success", message: "Message sent successfully!" });
+        toast.success("Message sent successfully!");
         form.reset();
       } else {
-        setToast({ type: "error", message: "Failed to send message. Please try again." });
+        toast.error("Failed to send message. Please try again.");
       }
     } catch (error) {
-      setToast({ error,type: "error", message: "Failed to send message. Please try again." });
+      toast.error(error, "Failed to send message. Please try again.");
     }
-
-    setTimeout(() => setToast(null), 3000);
   };
 
   return (
     <>
-      {/* Toast Notification */}
-      {toast && (
-        <div
-          className={`fixed top-4 left-1/2 transform -translate-x-1/2 px-6 py-3 rounded shadow-md text-white z-50 ${
-            toast.type === "success" ? "bg-green-500" : "bg-red-500"
-          }`}
-          role="alert"
-        >
-          {toast.message}
-        </div>
-      )}
-
       <section id="contact" className="py-16">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-bold text-center mb-12">
@@ -60,10 +44,7 @@ const Contact = () => {
               onSubmit={handleSubmit}
               className="space-y-6"
             >
-              {/* Netlify hidden input */}
               <input type="hidden" name="form-name" value="contact" />
-
-              {/* Honeypot Field */}
               <p className="hidden">
                 <label>
                   Don’t fill this out if you're human:{" "}
