@@ -7,7 +7,6 @@ const Contact = () => {
     e.preventDefault();
     const form = e.target;
 
-    // Prepare form data
     const formData = new FormData(form);
 
     try {
@@ -24,10 +23,9 @@ const Contact = () => {
         setToast({ type: "error", message: "Failed to send message. Please try again." });
       }
     } catch (error) {
-      setToast({ type: "error", message: "Failed to send message. Please try again.",error });
+      setToast({ error,type: "error", message: "Failed to send message. Please try again." });
     }
 
-    // Hide toast after 3 seconds
     setTimeout(() => setToast(null), 3000);
   };
 
@@ -36,7 +34,7 @@ const Contact = () => {
       {/* Toast Notification */}
       {toast && (
         <div
-          className={`fixed top-4 left-1/2 transform -translate-x-1/2 px-6 py-3 rounded shadow-md text-white ${
+          className={`fixed top-4 left-1/2 transform -translate-x-1/2 px-6 py-3 rounded shadow-md text-white z-50 ${
             toast.type === "success" ? "bg-green-500" : "bg-red-500"
           }`}
           role="alert"
@@ -52,16 +50,20 @@ const Contact = () => {
               Contact
             </span>
           </h2>
+
           <div className="max-w-3xl mx-auto bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md">
             <form
               name="contact"
               method="POST"
               data-netlify="true"
-              netlify-honeypot="bot-field"
-              className="space-y-6"
+              data-netlify-honeypot="bot-field"
               onSubmit={handleSubmit}
+              className="space-y-6"
             >
+              {/* Netlify hidden input */}
               <input type="hidden" name="form-name" value="contact" />
+
+              {/* Honeypot Field */}
               <p className="hidden">
                 <label>
                   Don’t fill this out if you're human:{" "}
@@ -81,6 +83,7 @@ const Contact = () => {
                   className="w-full p-3 rounded-md border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900"
                 />
               </div>
+
               <div>
                 <label htmlFor="email" className="block font-medium mb-2">
                   Email
@@ -93,6 +96,7 @@ const Contact = () => {
                   className="w-full p-3 rounded-md border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900"
                 />
               </div>
+
               <div>
                 <label htmlFor="message" className="block font-medium mb-2">
                   Message
@@ -105,6 +109,7 @@ const Contact = () => {
                   className="w-full p-3 rounded-md border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900"
                 ></textarea>
               </div>
+
               <button
                 type="submit"
                 className="px-6 py-3 bg-primary-light dark:bg-[#6366f1] text-white rounded-lg hover:opacity-90 transition"

@@ -53,10 +53,9 @@ vite.config.js — Vite configuration file
 📂 Project showcase with live demos and GitHub links
 
 
----
 ##  🤝 Contributing
 Contributions are welcome! To contribute:
-
+    
 1. Fork the repository
 
 2. Create a feature branch
