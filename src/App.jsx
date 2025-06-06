@@ -6,21 +6,22 @@ import Skillpage from "./components/Skillpage";
 import Project from "./components/Project";
 import Contact from "./components/Contact";
 import ScrollupButton from "./components/ScrollupButton";
-import { ToastContainer } from "react-toastify";
-function App() {
+import { ToastContainer, Bounce } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+function App() { 
+  const isDarkMode = () =>
+  document.documentElement.classList.contains("dark");
   return (
     <>
-      <ToastContainer
+     <ToastContainer
         position="top-center"
         autoClose={3000}
         hideProgressBar={false}
-        newestOnTop={false}
         closeOnClick
-        rtl={false}
-        pauseOnFocusLoss={false}
-        draggable
         pauseOnHover={false}
-        theme="dark"
+        draggable
+        theme={isDarkMode() ? "dark" : "light"}
+        transition={Bounce}
       />
       <Header />
       <Homepage />

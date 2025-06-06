@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
 
 const Contact = () => {
   const handleSubmit = async (e) => {
@@ -15,13 +15,13 @@ const Contact = () => {
       });
 
       if (response.ok) {
-        toast.success("Message sent successfully!");
+        toast.success( "✅ Message sent successfully!");
         form.reset();
       } else {
-        toast.error("Failed to send message. Please try again.");
+        toast.error("❌ Failed to send message. Try again.");
       }
     } catch (error) {
-      toast.error(error, "Failed to send message. Please try again.");
+      toast.error(error, "⚠️ Something went wrong. Please try again.");
     }
   };
 
@@ -90,7 +90,9 @@ const Contact = () => {
                   className="w-full p-3 rounded-md border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900"
                 ></textarea>
               </div>
-
+              <div className="field">
+                 <div data-netlify-recaptcha="true"></div>
+              </div>
               <button
                 type="submit"
                 className="px-6 py-3 bg-primary-light dark:bg-[#6366f1] text-white rounded-lg hover:opacity-90 transition"
