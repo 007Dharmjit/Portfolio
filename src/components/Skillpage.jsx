@@ -1,80 +1,91 @@
 import React from "react";
+// Import icons from react-icons/fa
+import { 
+  FaCogs, 
+  FaReact, 
+  FaDatabase, 
+  FaTools, 
+  FaCheckCircle 
+} from "react-icons/fa";
 
 const Skillpage = () => {
   return (
-    <section id="skills" className="py-16">
-      <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center mb-12">
-          <span className="border-b-4 border-primary-light dark:border-primary-dark pb-2">
-            My Skills
+    <section id="skills" className="py-16 px-6 md:px-16 bg-white dark:bg-gray-900 transition-colors duration-300">
+      <div className="container mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-white">
+          <span className="border-b-4 border-primary-light dark:border-[#6366f1] pb-2">
+            My Technical Skills
           </span>
         </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {/* Frontend */}
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition animate-slide-up">
-            <div className="text-4xl text-primary-light dark:text-primary-dark mb-4">
-              <i className="fab fa-react"></i>
+        {/* Grid: 1 col on mobile, 2 on tablet, 4 on desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          {/* Odoo & Backend Core */}
+          <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition hover:-translate-y-1 duration-300 group">
+            <div className="text-4xl text-purple-600 dark:text-purple-400 mb-4 group-hover:scale-110 transition-transform">
+              <FaCogs />
             </div>
-            <h3 className="text-xl font-semibold mb-2">Frontend</h3>
-            <ul className="space-y-1">
-              <li>React.js (Learning)</li>
-              <li>JavaScript (ES6+)</li>
-              <li>HTML5 & CSS3</li>
-              <li>Tailwind CSS (Basics)</li>
+            <h3 className="text-xl font-semibold mb-3 text-gray-800 dark:text-white">Odoo & Backend</h3>
+            <ul className="space-y-3 text-gray-600 dark:text-gray-300">
+              <li className="flex items-center"><FaCheckCircle className="text-xs mr-2 opacity-50" />Odoo Framework (v16-19)</li>
+              <li className="flex items-center"><FaCheckCircle className="text-xs mr-2 opacity-50" />Python (Core & Scripting)</li>
+              <li className="flex items-center"><FaCheckCircle className="text-xs mr-2 opacity-50" />XML (Views & Reports)</li>
+              <li className="flex items-center"><FaCheckCircle className="text-xs mr-2 opacity-50" />API Integration</li>
             </ul>
           </div>
 
-          {/* Backend */}
+          {/* Frontend Development */}
           <div
-            className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition animate-slide-up"
+            className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition hover:-translate-y-1 duration-300 group"
             style={{ animationDelay: "0.1s" }}
           >
-            <div className="text-4xl text-secondary-light dark:text-secondary-dark mb-4">
-              <i className="fas fa-server"></i>
+            <div className="text-4xl text-blue-500 dark:text-blue-400 mb-4 group-hover:scale-110 transition-transform">
+              <FaReact />
             </div>
-            <h3 className="text-xl font-semibold mb-2">Backend</h3>
-            <ul className="space-y-1">
-              <li>Node.js (Basics)</li>
-              <li>Express.js (Learning)</li>
-              <li>Python (Basics)</li>
-              <li>Django & Flask (Exploring)</li>
+            <h3 className="text-xl font-semibold mb-3 text-gray-800 dark:text-white">Frontend</h3>
+            <ul className="space-y-3 text-gray-600 dark:text-gray-300">
+              <li className="flex items-center"><FaCheckCircle className="text-xs mr-2 opacity-50" />React.js (Intermediate)</li>
+              <li className="flex items-center"><FaCheckCircle className="text-xs mr-2 opacity-50" />JavaScript (ES6+)</li>
+              <li className="flex items-center"><FaCheckCircle className="text-xs mr-2 opacity-50" />Tailwind CSS</li>
+              <li className="flex items-center"><FaCheckCircle className="text-xs mr-2 opacity-50" />HTML5 & CSS3</li>
             </ul>
           </div>
 
-          {/* Database */}
+          {/* Database & System */}
           <div
-            className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition animate-slide-up"
+            className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition hover:-translate-y-1 duration-300 group"
             style={{ animationDelay: "0.2s" }}
           >
-            <div className="text-4xl text-accent-light dark:text-accent-dark mb-4">
-              <i className="fas fa-database"></i>
+            <div className="text-4xl text-green-600 dark:text-green-400 mb-4 group-hover:scale-110 transition-transform">
+              <FaDatabase />
             </div>
-            <h3 className="text-xl font-semibold mb-2">Database</h3>
-            <ul className="space-y-1">
-              <li>MongoDB (Basics)</li>
-              <li>MySQL (Learning)</li>
-              <li>Firebase (Exploring)</li>
+            <h3 className="text-xl font-semibold mb-3 text-gray-800 dark:text-white">Database & OS</h3>
+            <ul className="space-y-3 text-gray-600 dark:text-gray-300">
+              <li className="flex items-center"><FaCheckCircle className="text-xs mr-2 opacity-50" />PostgreSQL (Odoo Default)</li>
+              <li className="flex items-center"><FaCheckCircle className="text-xs mr-2 opacity-50" />MySQL</li>
+              <li className="flex items-center"><FaCheckCircle className="text-xs mr-2 opacity-50" />Linux / Ubuntu</li>
+              <li className="flex items-center"><FaCheckCircle className="text-xs mr-2 opacity-50" />Shell Scripting</li>
             </ul>
           </div>
 
-          {/* Tools & Practices */}
+          {/* Tools & Workflow */}
           <div
-            className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition animate-slide-up"
+            className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition hover:-translate-y-1 duration-300 group"
             style={{ animationDelay: "0.3s" }}
           >
-            <div className="text-4xl text-primary-light dark:text-primary-dark mb-4">
-              <i className="fas fa-tools"></i>
+            <div className="text-4xl text-orange-500 dark:text-orange-400 mb-4 group-hover:scale-110 transition-transform">
+              <FaTools />
             </div>
-            <h3 className="text-xl font-semibold mb-2">Tools & Practices</h3>
-            <ul className="space-y-1">
-              <li>Git & GitHub (Using)</li>
-              <li>VS Code</li>
-              <li>Learning Docker</li>
-              <li>Testing Basics</li>
-              <li>Continuous Learning</li>
+            <h3 className="text-xl font-semibold mb-3 text-gray-800 dark:text-white">Tools</h3>
+            <ul className="space-y-3 text-gray-600 dark:text-gray-300">
+              <li className="flex items-center"><FaCheckCircle className="text-xs mr-2 opacity-50" />Git & GitHub</li>
+              <li className="flex items-center"><FaCheckCircle className="text-xs mr-2 opacity-50" />VS Code / PyCharm</li>
+              <li className="flex items-center"><FaCheckCircle className="text-xs mr-2 opacity-50" />Postman</li>
+              <li className="flex items-center"><FaCheckCircle className="text-xs mr-2 opacity-50" />Docker (Basics)</li>
             </ul>
           </div>
+
         </div>
       </div>
     </section>

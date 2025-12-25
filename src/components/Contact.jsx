@@ -1,5 +1,6 @@
+import React from "react";
 import { toast } from "react-toastify";
-
+import { FaPaperPlane } from "react-icons/fa"; // Added icon
 
 const Contact = () => {
   const handleSubmit = async (e) => {
@@ -15,27 +16,29 @@ const Contact = () => {
       });
 
       if (response.ok) {
-        toast.success( "✅ Message sent successfully!");
+        toast.success("✅ Message sent successfully!");
         form.reset();
       } else {
         toast.error("❌ Failed to send message. Try again.");
       }
     } catch (error) {
-      toast.error(error, "⚠️ Something went wrong. Please try again.");
+      // Fixed toast error syntax
+      console.error(error);
+      toast.error("⚠️ Something went wrong. Please try again.");
     }
   };
 
   return (
     <>
-      <section id="contact" className="py-16">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12">
+      <section id="contact" className="py-16 px-6 md:px-16 bg-white dark:bg-gray-900 transition-colors duration-300">
+        <div className="container mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-white">
             <span className="border-b-4 border-primary-light dark:border-[#6366f1] pb-2">
               Contact
             </span>
           </h2>
 
-          <div className="max-w-3xl mx-auto bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md">
+          <div className="max-w-3xl mx-auto bg-gray-50 dark:bg-gray-800 p-6 md:p-8 rounded-xl shadow-md border border-gray-100 dark:border-gray-700">
             <form
               name="contact"
               method="POST"
@@ -52,8 +55,12 @@ const Contact = () => {
                 </label>
               </p>
 
+              {/* Name Field */}
               <div>
-                <label htmlFor="name" className="block font-medium mb-2">
+                <label 
+                  htmlFor="name" 
+                  className="block font-medium mb-2 text-gray-700 dark:text-gray-300"
+                >
                   Name
                 </label>
                 <input
@@ -61,12 +68,17 @@ const Contact = () => {
                   id="name"
                   name="name"
                   required
-                  className="w-full p-3 rounded-md border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900"
+                  placeholder="Your Name"
+                  className="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-light dark:focus:ring-[#6366f1] transition-all"
                 />
               </div>
 
+              {/* Email Field */}
               <div>
-                <label htmlFor="email" className="block font-medium mb-2">
+                <label 
+                  htmlFor="email" 
+                  className="block font-medium mb-2 text-gray-700 dark:text-gray-300"
+                >
                   Email
                 </label>
                 <input
@@ -74,12 +86,17 @@ const Contact = () => {
                   id="email"
                   name="email"
                   required
-                  className="w-full p-3 rounded-md border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900"
+                  placeholder="your.email@example.com"
+                  className="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-light dark:focus:ring-[#6366f1] transition-all"
                 />
               </div>
 
+              {/* Message Field */}
               <div>
-                <label htmlFor="message" className="block font-medium mb-2">
+                <label 
+                  htmlFor="message" 
+                  className="block font-medium mb-2 text-gray-700 dark:text-gray-300"
+                >
                   Message
                 </label>
                 <textarea
@@ -87,17 +104,22 @@ const Contact = () => {
                   name="message"
                   rows="5"
                   required
-                  className="w-full p-3 rounded-md border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900"
+                  placeholder="How can I help you?"
+                  className="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-light dark:focus:ring-[#6366f1] transition-all resize-none"
                 ></textarea>
               </div>
+
               <div className="field">
                  <div data-netlify-recaptcha="true"></div>
               </div>
+
+              {/* Submit Button */}
               <button
                 type="submit"
-                className="px-6 py-3 bg-primary-light dark:bg-[#6366f1] text-white rounded-lg hover:opacity-90 transition"
+                className="w-full md:w-auto px-8 py-3 bg-primary-light dark:bg-[#6366f1] text-white font-semibold rounded-lg hover:opacity-90 transition-transform transform active:scale-95 flex items-center justify-center gap-2 shadow-lg"
               >
-                Send Message
+                <span>Send Message</span>
+                <FaPaperPlane className="text-sm" />
               </button>
             </form>
           </div>

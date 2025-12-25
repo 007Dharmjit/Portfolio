@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { CiLight ,CiDark  } from "react-icons/ci";
+import { CiLight, CiDark, CiMenuBurger, CiCircleRemove } from "react-icons/ci";
 
 const Header = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Initialize theme on mount
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     const isDark =
@@ -14,9 +13,15 @@ const Header = () => {
         window.matchMedia("(prefers-color-scheme: dark)").matches);
     setDarkMode(isDark);
     document.documentElement.classList.toggle("dark", isDark);
-  }, []);
+    
+    // Prevent scrolling when menu is open
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [menuOpen]); // Re-run when menuOpen changes
 
-  // Toggle dark mode
   const toggleTheme = () => {
     const isDark = !darkMode;
     setDarkMode(isDark);
@@ -24,31 +29,31 @@ const Header = () => {
     localStorage.setItem("theme", isDark ? "dark" : "light");
   };
 
-  // Toggle mobile menu
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-sm">
-      <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
+    <header className="sticky px-6 md:px-16 top-0 z-50 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-sm">
+      <nav className="container mx-auto py-4 flex justify-between items-center relative z-50">
         <a
           href="#"
           className="text-2xl font-bold text-primary-light dark:text-primary-dark"
         >
-          Dharmjit<span className="text-accent-light dark:text-accent-dark">.</span>
+          Dharmjit
+          <span className="text-accent-light dark:text-accent-dark">.</span>
         </a>
 
+        {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8">
           {["home", "about", "skills", "projects", "contact"].map((link) => (
             <a
-  key={link}
-  href={`#${link}`}
-  className="transition-colors duration-300 capitalize hover:text-primary-light dark:hover:text-primary-dark"
->
-  {link}
-</a>
-
+              key={link}
+              href={`#${link}`}
+              className="transition-colors duration-300 capitalize hover:text-primary-light dark:hover:text-primary-dark"
+            >
+              {link}
+            </a>
           ))}
         </div>
 
@@ -58,36 +63,39 @@ const Header = () => {
             className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
           >
             {darkMode ? (
-              <i><CiLight /></i>
+              <CiLight className="text-xl" />
             ) : (
-              <i ><CiDark /></i>
+              <CiDark className="text-xl" />
             )}
           </button>
 
+          {/* Mobile Menu Toggle Button */}
           <button
             onClick={toggleMenu}
-            className="md:hidden p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+            className="md:hidden p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition relative z-50"
           >
-            <i className="fas fa-bars"></i>
+            {menuOpen ? (
+              <CiCircleRemove className="text-2xl" />
+            ) : (
+              <CiMenuBurger className="text-2xl" />
+            )}
           </button>
         </div>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Full Screen Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white dark:bg-gray-800">
-          <div className="container mx-auto px-6 py-2 flex flex-col space-y-3">
-            {["home", "about", "skills", "projects", "contact"].map((link) => (
-              <a
-                key={link}
-                href={`#${link}`}
-                className="py-2 hover:text-primary-light dark:hover:text-primary-dark transition capitalize"
-                onClick={() => setMenuOpen(false)}
-              >
-                {link}
-              </a>
-            ))}
-          </div>
+        <div className="fixed inset-0 z-40 bg-white dark:bg-gray-900 flex flex-col items-center justify-center space-y-8 md:hidden h-screen w-screen">
+          {["home", "about", "skills", "projects", "contact"].map((link) => (
+            <a
+              key={link}
+              href={`#${link}`}
+              className="text-2xl font-medium capitalize text-gray-800 dark:text-gray-100 hover:text-primary-light dark:hover:text-primary-dark transition-transform hover:scale-110"
+              onClick={() => setMenuOpen(false)}
+            >
+              {link}
+            </a>
+          ))}
         </div>
       )}
     </header>
