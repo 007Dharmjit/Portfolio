@@ -21,10 +21,7 @@ const About = () => {
 
         <div className="flex flex-col md:flex-row items-start gap-12">
           
-          {/* Image Section 
-              - Mobile: Normal scroll
-              - Desktop: Sticky (stays in view while reading text)
-          */}
+          {/* Image Section */}
           <div className="w-full md:w-1/3 flex justify-center md:sticky md:top-24 h-fit">
             <img
               src="https://images.unsplash.com/photo-1604964432806-254d07c11f32?q=80&w=2080&auto=format&fit=crop"
@@ -58,47 +55,71 @@ const About = () => {
               </h3>
               
               <div className="space-y-6">
-                {/* Degree */}
+                {/* Degree - B.Tech */}
                 <div className="flex items-start">
                   <div className="mt-1 mr-4 text-primary-light dark:text-[#6366f1] text-xl">
                     <FaGraduationCap />
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-lg text-gray-800 dark:text-gray-100">
-                      B.Tech (Bachelor of Technology)
-                    </h4>
+                  <div className="w-full">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
+                      <h4 className="font-semibold text-lg text-gray-800 dark:text-gray-100">
+                        B.Tech (Bachelor of Technology)
+                      </h4>
+                      <span className="text-xs font-bold bg-green-100 text-green-700 px-2 py-1 rounded dark:bg-green-900 dark:text-green-300 mt-1 sm:mt-0 w-fit">
+                        2021-2025
+                      </span>
+                    </div>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
-                      Computer Science & Engineering
+                      Computer Engineering
+                    </p>
+                    <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mt-1">
+                      CGPA: <span className="text-primary-light dark:text-[#6366f1]">7.02</span>
                     </p>
                   </div>
                 </div>
 
-                {/* HSC */}
+                {/* HSC - 12th */}
                 <div className="flex items-start">
                   <div className="mt-1 mr-4 text-primary-light dark:text-[#6366f1] text-xl">
                     <FaUniversity />
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-lg text-gray-800 dark:text-gray-100">
-                      12th Grade (HSC)
-                    </h4>
+                  <div className="w-full">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
+                      <h4 className="font-semibold text-lg text-gray-800 dark:text-gray-100">
+                        12th Grade (HSC)
+                      </h4>
+                      <span className="text-xs font-bold bg-green-100 text-green-700 px-2 py-1 rounded dark:bg-green-900 dark:text-green-300 mt-1 sm:mt-0 w-fit">
+                        2021
+                      </span>
+                    </div>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
                       Higher Secondary Education
+                    </p>
+                    <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mt-1">
+                      Percentage: <span className="text-primary-light dark:text-[#6366f1]">76.50%</span>
                     </p>
                   </div>
                 </div>
 
-                {/* SSC */}
+                {/* SSC - 10th */}
                 <div className="flex items-start">
                   <div className="mt-1 mr-4 text-primary-light dark:text-[#6366f1] text-xl">
                     <FaSchool />
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-lg text-gray-800 dark:text-gray-100">
-                      10th Grade (SSC)
-                    </h4>
+                  <div className="w-full">
+                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
+                      <h4 className="font-semibold text-lg text-gray-800 dark:text-gray-100">
+                        10th Grade (SSC)
+                      </h4>
+                      <span className="text-xs font-bold bg-green-100 text-green-700 px-2 py-1 rounded dark:bg-green-900 dark:text-green-300 mt-1 sm:mt-0 w-fit">
+                        2019
+                      </span>
+                    </div>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
                       Secondary School Education
+                    </p>
+                    <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mt-1">
+                      Percentage: <span className="text-primary-light dark:text-[#6366f1]">77.50%</span> {/* Update this value */}
                     </p>
                   </div>
                 </div>
